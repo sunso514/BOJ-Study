@@ -51,17 +51,11 @@ int main() {
         }
         //kx + 1 = cy 이므로 cy - kx = 1
         while (y <= 0) y += K; // 음수 양수처리
-        if (C == 1) {
-
-            y = K + 1;
-        }
+        if (C == 1) y = K + 1;
         if (y > 1000000000) {
             cout << "IMPOSSIBLE" << "\n";
             continue;
         }
         cout << y << "\n";
     }
-    
-
-
 }
