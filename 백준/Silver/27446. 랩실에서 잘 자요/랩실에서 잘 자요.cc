@@ -5,11 +5,6 @@
 
 using namespace std;
 
-//#define MAX 100001 // 최대 정점의 개수
-//#define INF 99999999
-
-//vector<int> list;
-
 int N, M;
 
 int main() {
