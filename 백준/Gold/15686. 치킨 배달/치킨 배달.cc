@@ -1,19 +1,10 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
 #include <cmath>
-#include <map>
+#include <queue>
 #define test "test "
 using namespace std;
-
-//#define MAX 100001 // 최대 정점의 개수
-//#define INF 99999999
-
-//vector<int> list;
 
 struct Location {
     int x, y;
@@ -56,7 +47,6 @@ void dfs(dfsLoc loc) {
         }
     }
 }
-
 
 
 int main() {
