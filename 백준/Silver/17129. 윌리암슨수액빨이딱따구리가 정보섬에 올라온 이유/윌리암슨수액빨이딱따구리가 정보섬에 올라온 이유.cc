@@ -1,18 +1,10 @@
 #include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
 #define test "test "
 #define endl "\n"
 
 using namespace std;
-const int INF = 999999999;
 
 int N, M;
 vector<vector<int>> graph;
@@ -37,13 +29,11 @@ void BFS() {
             int tmy = loc.y + dy[i];
             if (tmx >= 0 && tmy >= 0 && tmx < N && tmy < M && !visit[tmx][tmy] && graph[tmx][tmy] != 1) {
                 if (graph[tmx][tmy] != 0) {
-                    //cout << tmx << " " << tmy << graph[tmx][tmy] << endl;
                     cout << "TAK" << endl << loc.depth + 1;
                     return;
                 }
                 que.push({ tmx, tmy, loc.depth + 1 });
                 visit[tmx][tmy] = true;
-                //cout << tmx << " " << tmy << endl;
             }
         }
     }
