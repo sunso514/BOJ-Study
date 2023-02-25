@@ -2,25 +2,15 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
 #define test "test "
 #define endl "\n"
 
 using namespace std;
-const int INF = 999999999;
-
-int N, M;
 
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(0);
-
-
 
     int caseamount;
     cin >> caseamount;
