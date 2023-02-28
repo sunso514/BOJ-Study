@@ -1,18 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
+
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
 #define test "test "
 #define endl "\n"
 
 using namespace std;
-const int INF = 999999999;
 
 struct Location {
     int x, y;
@@ -47,9 +41,7 @@ bool BFS() {
             }
         }
     }
-
     return false;
-
 }
 
 int main() {
