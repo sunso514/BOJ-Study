@@ -1,13 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
 
 #pragma GCC optimize("O3")
 #pragma GCC optimize("Ofast")
@@ -18,8 +12,6 @@
 #define endl "\n"
 
 using namespace std;
-const int INF = 999999999;
-
 struct Location {
     int x, y;
 };
@@ -28,7 +20,6 @@ int dx[4] = { -1, 1, 0, 0 };
 int dy[4] = { 0,0,-1,1 };
 
 queue<Location> que;
-
 vector<vector<int>> graph;
 vector<vector<bool>> visit;
 
@@ -91,5 +82,4 @@ int main() {
         }
     }
     cout << "-1 -1 -1";
-
 }
