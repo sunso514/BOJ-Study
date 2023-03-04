@@ -1,33 +1,13 @@
 #include <iostream>
-#include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-
-
-
-#define test "test "
-#define endl "\n"
 
 using namespace std;
-#define X l.x + dx[i]
-#define Y l.y + dy[i]
-#define Z l.z + dz[i]
 
-//#define MAX 100001 // 최대 정점의 개수
-//#define INF 99999999
-
-//vector<int> list;
 
 vector<string> vec;
-
 string tmp = "";
-
 void temp_push(string a) {
     if (a.length() > 0) {
         vec.push_back(a);
