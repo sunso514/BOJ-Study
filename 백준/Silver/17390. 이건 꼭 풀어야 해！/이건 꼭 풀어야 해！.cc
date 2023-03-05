@@ -1,23 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#define test "test "
 #define endl "\n"
 
 using namespace std;
 
-
-
 vector<int> lists;
 vector<int> psum;
-
 
 int main() {
 
@@ -43,5 +32,4 @@ int main() {
         cin >> numa >> numb;
         cout << psum[numb] - psum[numa-1] << endl;
     }
-
 }
