@@ -1,12 +1,6 @@
 #include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
 #define test "test "
 #define endl "\n"
@@ -16,7 +10,6 @@ using namespace std;
 struct Melon {
     int index; int value;
 };
-
 
 vector<int> graph;
 vector<Melon> mem;
@@ -29,18 +22,13 @@ int bSearch(int goal) {
     int mid = 0;
     low = 0;
     high = res.size() - 1;
-
     while (low < high) {
         mid = (low + high) / 2;
-
-        //cout  << goal << " " << res[mid] << " " << mid << " / ";
         if (res[mid] < goal) {
-            //cout << "low = mid +1 ";
             low = mid + 1;
         }
         else high = mid;
     }
-    //cout << "ㅁ " << low << " " << high << endl;
     return high;
 }
 
@@ -57,8 +45,6 @@ int main() {
         if (res[res.size() - 1] < graph[i]) {
             res.push_back(graph[i]);
             int siz = res.size() - 1;
-            //cout << siz << endl;
-
             mem.push_back({ siz, graph[i] });
         }
         else {
@@ -66,30 +52,16 @@ int main() {
             res[index] = graph[i];
             mem.push_back({ index, graph[i] });
         }
-
-        //for (int i = 0; i < res.size(); i++) {
-        //    cout << res[i] << " ";
-        //}
-        //cout << endl;
     }
 
     cout << res.size() << endl;
-
-    //for (int i = 0; i < mem.size(); i++) cout << mem[i].index << " ";
-
-
-
     int first = res.size();
-
     for (int i = graph.size() - 1; i >= 0; i--) {
-        //cout << first << mem[i].index << " ";
         if (first - 1 == mem[i].index) {
             ans.push_front(mem[i].value);
             first--;
         }
     }
-    for (int i = 0; i < ans.size(); i++) {
-        cout << ans[i] << " ";
-    }
+    for (int i = 0; i < ans.size(); i++) cout << ans[i] << " ";
 
 }
