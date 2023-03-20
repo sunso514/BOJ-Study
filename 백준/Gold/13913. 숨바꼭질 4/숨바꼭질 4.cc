@@ -1,14 +1,7 @@
 #include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
-#define test "test "
 #define endl "\n"
 
 using namespace std;
@@ -16,14 +9,11 @@ using namespace std;
 struct Icecream {
     int x, depth;
 };
-
-
 vector<int> visit(1000001, 0);
 vector<int> path(1000001, -1);
 queue<Icecream> que;
 deque<int> pathtmp;
 int N, M;
-int low = 0, high = 0;
 
 void bfs() {
     Icecream loc;
@@ -69,8 +59,5 @@ int main() {
     visit[N] = true;
     bfs();
 
-    for (int i = 0; i < pathtmp.size(); i++) {
-        cout << pathtmp[i] << " ";
-    }
-
+    for (int i = 0; i < pathtmp.size(); i++) cout << pathtmp[i] << " ";
 }
