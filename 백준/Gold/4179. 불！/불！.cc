@@ -1,15 +1,6 @@
 #include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
 
@@ -40,7 +31,6 @@ void bfs() {
     while (!Fire.empty()) {
         fire = Fire.front();
         Fire.pop();
-        
         for (int i = 0; i < 4; i++) {
             if (FX >= 0 && FY >= 0 && FX < N && FY < M) {
                 if (graph[FX][FY] == 0) {
@@ -51,15 +41,6 @@ void bfs() {
             }
         }
     }
-    /*
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            cout << firegraph[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
-    */
     while (!que.empty()) {
         loc = que.front();
         que.pop();
@@ -82,15 +63,6 @@ void bfs() {
             }
         }
     }
-        /*
-        for (int i = 0; i < N; i ++ ) {
-            for (int j = 0; j < M; j++) {
-                cout << graph[i][j];
-            }
-            cout << endl;
-        }
-        */
- 
     cout << "IMPOSSIBLE";
 }
 
