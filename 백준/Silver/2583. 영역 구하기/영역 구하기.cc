@@ -63,31 +63,24 @@ int main() {
     cin >> M >> N >> K;
     graph.resize(N, vector<int>(M));
     visit.resize(N, vector<int>(M));
-    vector<int> ans;
-
+    int tmx, tmy, tmpx, tmpy;
     for (int i = 0; i < K; i++) {
-        int tmx, tmy, tmpx, tmpy;
         cin >> tmx >> tmy >> tmpx >> tmpy;
         
-        for (int j = tmx; j < tmpx; j++) {
-            for (int k = tmy; k < tmpy; k++) {
-                graph[j][k] = 1;
-            }
-        }
+        for (int j = tmx; j < tmpx; j++) 
+            for (int k = tmy; k < tmpy; k++) graph[j][k] = 1;
     }
 
-
-
+    vector<int> ans;
     int amount = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
+    for (int i = 0; i < N; i++) 
+        for (int j = 0; j < M; j++) 
             if (graph[i][j] == 0 && !visit[i][j]) {
                 que.push({ i, j });
                 amount++;
                 ans.push_back(bfs());
             }
-        }
-    }
+
     sort(ans.begin(), ans.end());
     cout << amount << endl;
     for (int i = 0; i < ans.size(); i++) cout << ans[i] << " ";
