@@ -18,7 +18,7 @@ def check_vt():  # 3번 규칙
     deq.remove(deq[ind])
 
 
-def check_jb(a):
+def check_jb(a): # 중복이라면 카운트를 증가
     for i in range(len(deq)):
         if a == deq[i].num:
             deq[i].count += 1
@@ -28,9 +28,8 @@ def check_jb(a):
 
 deq = deque()
 N, C = int(input()), int(input())
-
-draw = [-1 for i in range(C)]
 lists = list(map(int, input().split()))
+
 for i in range(C):
     if not check_jb(lists[i]):
         ls = Vote()
@@ -38,6 +37,8 @@ for i in range(C):
         if len(deq) >= N:
             check_vt()
         deq.append(ls)
+
+        
 ans = []
 for i in range(len(deq)):
     ans.append(deq[i].num)
