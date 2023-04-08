@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -47,12 +46,10 @@ void bfs() {
     Location tmp;
     que.push({ 0, 0 });
     fill(visited.begin(), visited.end(), vector<bool>(N, 0));
-    bool done = true;
     while (!que.empty()) {
         loc = que.front();
         que.pop();
         while (graph[loc.x][loc.y] == 1 && !switches[loc.x][loc.y].empty()) {
-            done = false;
             tmp = switches[loc.x][loc.y].back();
             switches[loc.x][loc.y].pop_back();
             if (!graph[tmp.x][tmp.y]) {
@@ -91,7 +88,6 @@ int main() {
         int a, b, c, d; cin >> a >> b >> c >> d;
         switches[a - 1][b - 1].push_back({ c - 1, d - 1 });
     }
-    //cout << test << endl;
     bfs();
     cout << ans;
 }
