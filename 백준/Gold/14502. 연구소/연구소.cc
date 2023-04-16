@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -9,8 +8,6 @@
 #include <cmath>
 #include <map>
 #include <deque>
-#define test "test "
-#define endl "\n"
 using namespace std;
 
 struct Location {
@@ -58,8 +55,6 @@ int bfs() {
             }
         }
     }
-    //cout << safe << endl;
-    
     return safe-count-3;
 
 }
@@ -99,5 +94,4 @@ int main() {
         }
     }
     cout << max;
-
 }
