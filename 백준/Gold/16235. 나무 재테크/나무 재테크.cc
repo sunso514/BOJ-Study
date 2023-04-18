@@ -1,14 +1,6 @@
-
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
 
 #define FOR(i,N) for(int (i) = 0; (i) < (N); (i)++)
 #define test "test "
