@@ -9,19 +9,13 @@ using namespace std;
 
 struct plotInfo { // N : nourishment , NPY : nourishment per year
     vector<int> trees;
-    int amount, N, NPY;
-};
-
-struct Location {
-    int x, y;
+    int N, NPY;
 };
 
 vector<vector<plotInfo>> plot;
 
 int N, M, K;
-
 #define TREE plot[i][j].trees
-
 #define X i + dx[mov]
 #define Y j + dy[mov]
 int dx[8] = { -1, 1, -1, 1, -1, 1, 0, 0 };
