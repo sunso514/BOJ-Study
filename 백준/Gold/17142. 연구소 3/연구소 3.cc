@@ -15,10 +15,8 @@ vector<vector<int>> graph;
 vector<vector<int>> visit;
 queue<Location> que;
 vector<Location> gns;
-
 bool check[10];
 vector<Location> Virus_Locations;
-vector<Location> Unav_Virus;
 
 int mins = 1000000007;
 int N, M, max, safe;
@@ -90,7 +88,6 @@ int main() {
         if (graph[i][j] == 1) safe--;
         if (graph[i][j] == 2) {
             safe--;
-            Unav_Virus.push_back({ i, j, 0 });
             gns.push_back({ i, j, 0 });
         }
     }
