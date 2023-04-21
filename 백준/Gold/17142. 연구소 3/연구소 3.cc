@@ -1,13 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
 #define test "test "
 #define endl "\n"
 using namespace std;
@@ -55,10 +49,7 @@ int bfs() {
                 que.push({ X, Y, loc.depth+1 });
                 visit[X][Y] = true;
                 if (graph[X][Y] == 0) count++;
-                if (safe - count == 0) { 
-                    return loc.depth + 1;
-                }
-                
+                if (safe - count == 0) return loc.depth + 1;
             }
         }
         
@@ -66,7 +57,7 @@ int bfs() {
     return 1000000007;
 }
 
-void dfs(int cord, int depth) {
+void dfs(int cord, int depth) { // 조합 찾기
     if (depth == M) {
         while (!que.empty()) que.pop();
         FOR(i, M) que.push(Virus_Locations[i]);
@@ -74,10 +65,8 @@ void dfs(int cord, int depth) {
         if (tmp < mins) mins = tmp;
         return;
     }
-    //cout << " 현재 cord: " << cord << endl;
     for (int i = cord; i < gns.size(); i++) {
         if (check[i]) continue;
-        //cout << " 현재 i: " << i << " ";
         check[i] = true;
         Virus_Locations.push_back(gns[i]);
         dfs( i, depth+1 );
@@ -105,11 +94,10 @@ int main() {
             gns.push_back({ i, j, 0 });
         }
     }
-    if (safe == 0) {
-        cout << 0;
-        return 0;
+    if (safe == 0) cout << 0;
+    else{
+        dfs( 0, 0 );
+        if (mins == 1000000007) cout << -1;
+        else cout << mins;
     }
-    dfs( 0, 0 );
-    if (mins == 1000000007) cout << -1;
-    else cout << mins;
 }
