@@ -1,19 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#define test "test "
-#define endl "\n"
 using namespace std;
-
-#define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
 vector<int> parentN(201, -1);
 int N, M;
 
@@ -31,7 +19,6 @@ int find(int cord) {
 void Union(int x, int y) {
     int x_parent = find(x);
     int y_parent = find(y);
-
     if (x_parent == y_parent) return; // 같은 집합
     if (parentN[x_parent] > parentN[y_parent]) {
         parentN[x_parent] += parentN[y_parent];
@@ -62,7 +49,6 @@ int main() {
 
     int start_point;
     cin >> start_point;
-
     for (int i = 1; i < M; i++) {
         int a; cin >> a;
         if (find(start_point) == find(a)) {
