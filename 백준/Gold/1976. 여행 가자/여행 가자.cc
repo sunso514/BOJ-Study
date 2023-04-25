@@ -5,12 +5,6 @@ using namespace std;
 vector<int> parentN(201, -1);
 int N, M;
 
-#define X loc.x + dx[i]
-#define Y loc.y + dy[i]
-
-int dx[4] = { 1, -1, 0, 0 };
-int dy[4] = { 0, 0, 1, -1 };
-
 int find(int cord) {
     if (parentN[cord] < 0) return cord; // 부모가 없음
     return parentN[cord] = find(parentN[cord]); 
