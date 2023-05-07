@@ -1,30 +1,10 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <ranges>
-#define test "test "
-#define endl "\n"
 using namespace std;
 
-#define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
-struct Location {
-    int x, y, color;
-};
-
 int T, N, M;
-
-
 vector<long long> A, B;
-
-
 void setting() { // A, B 배열을 구하고 누적합을 받아놓기
     cin >> N; 
     for (int i = 0; i < N; i++) {
@@ -79,12 +59,11 @@ int main() {
     cin.tie(0);
     ios::sync_with_stdio(0);
  
-    cin >> T; // 몇이 되어야 하는가
-
+    cin >> T; // key값
     setting(); // 배열 관련 입력
 
     long long ans = 0;
-    for (int i = 0; i < A.size(); i++) {
+    for (int i = 0; i < A.size(); i++) { // UpperBound - LowerBound = 결정문제의 답이 True로 나오는 범위 크기
         long long low = LowerBound(T - A[i]);
         long long high = UpperBound(T - A[i]);
         ans += high - low;
