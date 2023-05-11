@@ -1,20 +1,9 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <ranges>
-#define test "test "
 #define endl "\n"
 using namespace std;
-
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
 struct JongGang {
     int index, depth;
 };
@@ -23,7 +12,6 @@ int T, ans;
 
 int pick[100001];
 vector<bool> visit(1000002);
-
 
 JongGang dfs(int index, int depth) {
     if (visit[index]) return { index, depth };
@@ -38,12 +26,10 @@ JongGang dfs(int index, int depth) {
 
 
 int main() {
-
     cin.tie(0);
     ios::sync_with_stdio(0);
  
     cin >> T; 
-
     FOR(i, T) {
         int N; cin >> N;
         ans = N; 
