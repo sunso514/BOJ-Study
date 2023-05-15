@@ -1,15 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <ranges>
-#define test "test "
+
 #define endl "\n"
 using namespace std;
 
@@ -30,8 +22,6 @@ void Union(int x, int y) {
     parent[x_parent] = y_parent;
 }
 
-
-
 int main() {
 
     cin.tie(0);
@@ -47,7 +37,6 @@ int main() {
         cin >> K;
         FOR(j, K) {
             int a, b; cin >> a >> b;
-            
             Union(a, b);
         }
         cin >> M;
@@ -57,6 +46,4 @@ int main() {
         }
         cout << endl;
     }
-
-
 }
