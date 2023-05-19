@@ -1,16 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <ranges>
-#define test "test "
-#define endl "\n"
 using namespace std;
 
 vector<int> parent(52);
@@ -45,7 +35,7 @@ int main() {
         parent[a] = 0;
     }
 
-    vector<vector<int>> btr(M + 2, vector<int>());
+    vector<vector<int>> btr(M + 1, vector<int>());
 
     for (int i = 0; i < M; i++) {
         int tm; cin >> tm;
@@ -62,21 +52,16 @@ int main() {
                 }
             }
         }
-        //FOR(ab, N) cout << parent[ab] << " ";
-        //cout << endl;
     }
     int count = M;
     
- 
     for(int i = 0; i < M; i++) {
         for (int j = 0; j < btr[i].size(); j++) {
-            //cout << parent[btr[i][j]] << " ";
             if (parent[btr[i][j]] == 0) {
                 count--;
                 break;
             }
         }
-        //cout << endl;
     }
     cout << count;
 
