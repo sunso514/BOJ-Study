@@ -18,8 +18,8 @@ using namespace std;
 
 int now, goal;
 struct JongGang {
-    int index;
-    string res;
+    int index, depth, parent;
+    char how;
 };
 
 
@@ -27,81 +27,69 @@ vector<int> visit;
 vector<JongGang> graph;
 queue<JongGang> que;
 
-int rotate(int num, bool left) {
-    string getstr = to_string(num);
-    string report = "";
-    if (getstr.length() < 4) {
-        for (int i = getstr.length(); i < 4; i++) {
-            report += '0';
-        }
-    }
-    //cout << test;
-    //cout << report << " ";
-    for (int i = 0; i < getstr.length(); i++) {
-        report += getstr[i];
-    }
-    //cout << report;
-    if (left == true) {
-        return (report[1] - '0') * 1000 + (report[2] - '0') * 100 + (report[3] - '0') * 10 + (report[0] - '0');
-    }
-    else return (report[3] - '0') * 1000 + (report[0] - '0') * 100 + (report[1] - '0') * 10 + (report[2] - '0');
-}
-
-
 void bfs() {
     JongGang haja;
-
     while (!que.empty()) {
         haja = que.front();
         que.pop();
-
+        
         if (haja.index == goal) {
-            cout << haja.res << endl;
+            graph[haja.index].parent = haja.parent;
+            graph[haja.index].how = haja.how;
+            graph[haja.index].depth = haja.depth;
             return;
         }
 
-        int tmp;
 
-        tmp = (haja.index * 2) % 10000;
-        if (!visit[tmp]) {
-            visit[tmp] = true;
-            que.push({ tmp, haja.res + "D" });
-        }
-
-        tmp = haja.index == 0 ? 9999 : haja.index - 1;
-        if (!visit[tmp]) {
-            visit[tmp] = true;
-            que.push({ tmp, haja.res + "S" });
-        }
-
-        tmp = (haja.index % 1000) * 10 + (haja.index / 1000);
-        if (!visit[tmp]) {
-            visit[tmp] = true;
-            que.push({ tmp, haja.res + "L" });
-        }
-
-        tmp = haja.index / 10 + (haja.index % 10) * 1000;
-        if (!visit[tmp]) {
-            visit[tmp] = true;
-            que.push({ tmp, haja.res + "R" });
-        }
+        else if (visit[haja.index] == true) continue;
+        visit[haja.index] = true;
+        graph[haja.index].parent = haja.parent;
+        graph[haja.index].how = haja.how;
+        graph[haja.index].depth = haja.depth;
+        
+        que.push({ (haja.index * 2) % 10000 , haja.depth + 1, haja.index , 'D'});
+        que.push({ haja.index == 0 ? 9999 : haja.index-1 , haja.depth + 1, haja.index , 'S'});
+        que.push({(haja.index % 1000) * 10 + (haja.index / 1000), haja.depth + 1, haja.index ,'L'});
+        que.push({haja.index / 10 + (haja.index % 10) * 1000, haja.depth + 1, haja.index ,'R' });
+        
     }
 }
 
+/*
+
+
+*/
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(0);
     visit.resize(10001);
+    graph.resize(10001, { -1, -1, -1, 'N'});
 
     int N; cin >> N;
     for (int i = 0; i < N; i++) {
         fill(visit.begin(), visit.end(), 0);
         cin >> now >> goal;
-        visit[now] = true;
-        que.push({now, "" });
-        bfs();
-        while (!que.empty()) que.pop();
 
+        que.push({ now, 0, -5 , 'N'});
+        bfs();
+
+        deque<char> jongganghaja;
+        int par = goal;
+        
+        while (true) {
+            jongganghaja.push_front(graph[par].how);
+            if (graph[par].parent == now) break;
+            par = graph[par].parent;
+        }
+        for (int i = 0; i < jongganghaja.size(); i++) cout << jongganghaja[i];
+        cout << endl;
+        
+        while (!que.empty()) que.pop();
+        for (int j = 1; j <= 10001; j++) {
+            graph[i].parent = -1;
+            graph[i].depth = -1;
+            graph[i].how = 'N';
+        }
     }
 
 }
