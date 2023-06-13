@@ -1,31 +1,18 @@
     #include <iostream>
     #include <algorithm>
-    #include <cstring>
-    #include <string>
-    #include <queue>
     #include <vector>
-    #include <stack>
     #include <cmath>
-    #include <map>
-    #include <deque>
-    #include <set>
+
     #define test "test "
     #define endl "\n"
     using namespace std;
-
-    #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
 
     struct JongGang {
         long long hatda , mansae;
     };
 
-
-    vector<vector<int>> graph;
-    vector<vector<int>> visit;
-    queue<JongGang> que;
-
-    int N, M;
+    int N;
     long long CCW(JongGang a, JongGang b, JongGang c) {
         return (long long)(a.hatda * b.mansae) + (b.hatda * c.mansae) + (a.mansae * c.hatda) -
             (b.hatda * a.mansae) - (c.hatda * b.mansae) - (a.hatda * c.mansae);
