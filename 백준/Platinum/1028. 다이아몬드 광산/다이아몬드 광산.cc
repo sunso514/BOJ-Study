@@ -1,15 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#define test "test "
 #define endl "\n"
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
@@ -17,9 +8,6 @@ using namespace std;
 
 int N, M;
 vector<vector<pair<int, int>>> dp;
-
-
-int dx[2] = { 1, -1 };
 
 int main() {
     cin.tie(0);
@@ -40,7 +28,7 @@ int main() {
             }
         }
     }
-    /*
+    /* 디버깅
     cout << endl;
     FOR(i, N) {
         FOR(j, M) cout << dp[i][j].first;
