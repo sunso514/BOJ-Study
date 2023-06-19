@@ -1,16 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#define test "test "
-#define endl "\n"
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
@@ -29,7 +19,7 @@ bool compare(AirInfo & p1, AirInfo & p2) {
 
 }
 vector<int> needWatt;
-deque<AirInfo> aircon;
+vector<AirInfo> aircon;
 
 int main() {
     cin.tie(0);
