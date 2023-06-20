@@ -1,20 +1,10 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#define test "test "
-#define endl "\n"
-using namespace std;
-#define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
-int N, M;
+using namespace std;
+
+int N;
 
 vector<int> parent(300002, -1);
 
@@ -28,14 +18,7 @@ void Union(int x, int y) {
     int y_p = find(y);
 
     if (x_p == y_p) return;
-    if (parent[x_p] > parent[y_p]) {
-        parent[x_p] += parent[y_p];
-        parent[y_p] = x_p;
-    }
-    else {
-        parent[y_p] += parent[x_p];
-        parent[x_p] = y_p;
-    }
+    parent[y_p] = x_p;
 }
 
 
