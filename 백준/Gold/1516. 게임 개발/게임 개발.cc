@@ -1,21 +1,11 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
 #define endl "\n"
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
 
 vector<int> graph[501];
 vector<int> indegree(501);
@@ -24,9 +14,7 @@ vector<int> b_time(501);
 
 queue<int> que;
 
-
 int N;
-
 
 int main() {
 	ios::sync_with_stdio(0);
