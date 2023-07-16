@@ -1,23 +1,9 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
-#define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
-
-
 int N, M, X;
 
 struct Location {
@@ -29,9 +15,6 @@ struct compare {
 		return l1.cost > l2.cost;
 	}
 };
-
-int dx[4] = { 1, -1, 0, 0 };
-int dy[4] = { 0, 0, 1 , -1 };
 
 const int INF = 1000000007;
 vector<int> d(1002, INF);
