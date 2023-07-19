@@ -1,16 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
 #define endl "\n"
 
 using namespace std;
