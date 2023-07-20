@@ -2,26 +2,10 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 
 using namespace std;
-//    vector<int> list(time);
-//vector<int> list;
-
-
-
 int n, m, streak;
-
-//int graph[1][1];
-vector<bool> check(1000000001);
-//vector<vector<int>> vec;
-
-
-
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(0);
