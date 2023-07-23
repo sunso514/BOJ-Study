@@ -16,11 +16,9 @@ int main() {
 	cin >> N >> C >> W;
 	vector<int> trees(N, 0);
 
-	int mv = 50000;
 	int maxv = 0;
 	FOR(i, N) {
 		cin >> trees[i];
-		mv = min(mv, trees[i]);
 		maxv = max(maxv, trees[i]);
 	}
 
