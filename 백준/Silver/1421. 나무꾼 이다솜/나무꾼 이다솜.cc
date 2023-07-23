@@ -40,7 +40,6 @@ int main() {
 			//cout << tmp << " ";
 		}
 		//cout << endl;
-		//if (tmp > ans) cout << L << " ";
 		ans = max(tmp, ans);
 	}
 	cout << ans;
