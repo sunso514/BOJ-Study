@@ -1,21 +1,9 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
 
 int N, M;
 vector<vector<int>> graph;
@@ -31,8 +19,6 @@ void dfs(int x, int y, int block) {
 		if (y + 1 >= M) return;
 		if (graph[x][y + 1] == block) dfs(x, y + 1, block);
 	}
-	
-	
 }
 
 int main() {
@@ -57,6 +43,4 @@ int main() {
 		count++;
 	}
 	cout << count;
-
-
 } 
