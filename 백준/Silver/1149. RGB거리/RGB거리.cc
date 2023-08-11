@@ -1,17 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
@@ -34,11 +23,9 @@ int main() {
 
     FOR(i, 3)  dp[0][i] = rgb[0][i];
 
-    for (int i = 1; i < N; i++) {
-        FOR(j, 3) {
-            dp[i][j] = min(dp[i - 1][(j + 1) % 3] + rgb[i][j], dp[i][j]);
-            dp[i][j] = min(dp[i - 1][(j + 2) % 3] + rgb[i][j], dp[i][j]);
-        }
+    for (int i = 1; i < N; i++) FOR(j, 3){
+        dp[i][j] = min(dp[i - 1][(j + 1) % 3] + rgb[i][j], dp[i][j]);
+        dp[i][j] = min(dp[i - 1][(j + 2) % 3] + rgb[i][j], dp[i][j]);
     }
     cout << min(dp[N - 1][0], min(dp[N - 1][1], dp[N - 1][2]));
 }
