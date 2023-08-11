@@ -18,9 +18,7 @@ int main() {
     rgb.resize(N, vector<int>(3));
     dp.resize(N, vector<int>(3, 1000000007));
 
-
     FOR(i, N) FOR(j, 3) cin >> rgb[i][j];
-
     FOR(i, 3)  dp[0][i] = rgb[0][i];
 
     for (int i = 1; i < N; i++) FOR(j, 3){
