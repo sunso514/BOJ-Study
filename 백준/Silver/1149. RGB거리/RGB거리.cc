@@ -5,9 +5,6 @@
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
-vector<vector<int>> rgb;
-vector<vector<int>> dp;
-
 int N;
 int main() {
     ios::sync_with_stdio(0);
@@ -15,9 +12,9 @@ int main() {
 
     cin >> N;
 
-    rgb.resize(N, vector<int>(3));
-    dp.resize(N, vector<int>(3, 1000000007));
-
+    vector<vector<int>> rgb(N, vector<int>(3));
+    vector<vector<int>> dp(N, vector<int>(3, 1000000007));
+    
     FOR(i, N) FOR(j, 3) cin >> rgb[i][j];
     FOR(i, 3)  dp[0][i] = rgb[0][i];
 
