@@ -43,13 +43,13 @@ int main() {
 	long long left = 0;
 	long long right = 1000000000001;
 	long long mid;
-	while (left < right) {
+	while (left + 1 < right) {
 
-		mid = left + (right - left) / 2;
+		mid = (left + right) / 2;
 		long long ch = checkG(mid);
 
 		if (ch < M) {
-			left = mid + 1;
+			left = mid;
 		}
 		else {
 			right = mid;
