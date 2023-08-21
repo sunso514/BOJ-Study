@@ -1,17 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
@@ -32,7 +21,6 @@ void dfs(int loc, bool big) {
             dfs(x, big);
         }
     }
-    
 }
 
 
