@@ -1,17 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
@@ -35,14 +25,6 @@ vector<Location> nonwater;
 #define Y y + dy[i]
 #define nextG (nowG + 1) % 2
 
-void debug_graph(int now) {
-    FOR(i, N) {
-        FOR(j, M) {
-            cout << graph[now][i][j];
-        }
-        cout << endl;
-    }
-}
 
 void dfs(int x, int y) {
     visit[x][y] = true;
@@ -67,14 +49,10 @@ int main() {
         if (graph[0][i][j] != 0) nonwater.push_back({ i, j });
     }
     
-
     int tcount = 0;
     while (true) {
-        //cout << "nowG : " << nowG << endl;
-        fill(visit.begin(), visit.end(), vector<int>(M));
 
-        bool check = false;
-        //debug_graph(nowG);
+        fill(visit.begin(), visit.end(), vector<int>(M));
 
         int count = 0;
         FOR(tc, nonwater.size()) {
@@ -86,6 +64,7 @@ int main() {
                 count++;
             }
         }
+
         if (count == 0) {
             cout << 0;
             return 0;
@@ -94,6 +73,8 @@ int main() {
             cout << tcount;
             return 0;
         }
+
+
         FOR(x, N) FOR(y, M) {
             graph[nextG][x][y] = 0;
             if (graph[nowG][x][y] == 0) continue;
@@ -103,9 +84,8 @@ int main() {
                 if (X < 0 || Y < 0 || X >= N || Y >= M) continue;
                 if (graph[nowG][X][Y] == 0) val++;
             }
-            //out << val << graph[nowG][x][y];
+
             graph[nextG][x][y] = max(0, graph[nowG][x][y] - val);
-            //cout << graph[nextG][x][y] << " ";
         }
 
         nowG = nextG;
