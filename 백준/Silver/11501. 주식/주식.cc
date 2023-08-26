@@ -1,25 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
+
 #define endl "\n"
 #define GB " "
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
-
-struct Loc{
-    int start, end, cost;
-};
 
 int T;
 
@@ -40,12 +27,8 @@ int main() {
         long long ans = 0;
         int max_num = dy[N-1];
         for(int i = N-2; i >= 0; i--){
-            if (max_num > dy[i]) {
-                ans += (max_num - dy[i]);
-            }
-            else {
-                max_num = dy[i];
-            }
+            if (max_num > dy[i]) ans += (max_num - dy[i]);
+            else max_num = dy[i];
         }
         cout << ans << endl;
     }
