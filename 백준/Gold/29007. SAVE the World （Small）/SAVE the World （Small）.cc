@@ -4,30 +4,20 @@
 #include <queue>
 #include <cstring>
 #include <string>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
+
 #define endl "\n"
-#define GB " "
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
 int dx[4] = {-1,0,1,0};
 int dy[4] = {0,1,0,-1};
-//string dir[4] = { "X", "A", "W", "D" };
 string dir[4] = { "D", "X", "A", "W" };
 
 bool voidcheck(int x, int y) {
     if (x > 30 || y > 30 || x < 0 || y < 0)return false;
     return true;
 }
-
-
 
 int main() {
     cin.tie(0);
@@ -43,6 +33,7 @@ int main() {
         int a, b; cin >> a >> b;
         graph[a+15][b+15] = i;
     }
+    
     int nowx = 15; 
     int nowy = 15;
     
@@ -58,31 +49,26 @@ int main() {
 
                 nowx += dx[direction];
                 nowy += dy[direction];
+                
                 if (voidcheck(nowx, nowy) == false) break;
+                
                 pathfind.append(dir[direction]);
+                
                 if (graph[nowx][nowy] != 0) {
                     string TMP = pathfind;
                     reverse(TMP.begin(), TMP.end());
                     ans[graph[nowx][nowy]] = TMP;
                 }
-                //cout << " / ";
+                
             }
             direction = (direction + 1) % 4;
-            if (voidcheck(nowx, nowy) == false) break;
         }
-        //cout << endl;
         maxc += 1;
         if (voidcheck(nowx, nowy) == false) break;
     }
 
     for (int i = 1; i <= 500; i++) {
-        //cout << test;
         if (ans[i].length() < 1) break;
         cout << ans[i] << endl;
     }
-
-    //cout << pathfind;
-
-
-
 }
