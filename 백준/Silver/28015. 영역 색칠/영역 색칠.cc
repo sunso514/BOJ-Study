@@ -1,18 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <queue>
-#include <cstring>
-#include <string>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#define test "test "
-#define endl "\n"
-#define GB " "
 
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
@@ -35,14 +22,11 @@ int main() {
 		int one = 0;
 		int two = 0;
 
-		int oneMTE = 0;
-		int twoMTE = 0;
-
 		int last = 0;
 
 		FOR(j, M){
 			cin >> get;
-
+            
 			if (get == 1 && last != 1) {
 				one++;
 				last = 1;
@@ -54,20 +38,15 @@ int main() {
 			else if (get == 0 && last != 0) {
 				last = 0;
 				if (one > 0 || two > 0) {
-					if (one > 0 && two > 0) {
-						ans += 1 + min(one, two);
-					}
+					if (one > 0 && two > 0) ans += 1 + min(one, two);
 					else ans += max(one, two);
 					one = 0;
 					two = 0;
 				}
 			}
-			//cout << ans << endl;
 		}
 		if (one > 0 || two > 0) {
-			if (one > 0 && two > 0) {
-				ans += 1 + min(one, two);
-			}
+			if (one > 0 && two > 0) ans += 1 + min(one, two);
 			else ans += max(one, two);
 		}
 	}
