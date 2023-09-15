@@ -1,26 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <string>
 #include <algorithm>
-
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
-int A, B, C;
-
-
-struct Bottle{
-	//int a, b, c;
-	vector<int> bot;
-};
-
 vector<vector<vector<bool>>> visit(202, vector<vector<bool>>(202, vector<bool>(202)));
 vector<bool> check(202);
-
 queue<vector<int>> que;
+
 vector<int> msiz(3);
+
 void bfs() {
 	vector<int> now;
 
@@ -36,7 +26,6 @@ void bfs() {
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 1; j <= 2; j++) {
-
 				vector<int> tmp = now;
 				int nxt = (i + j) % 3;
 
@@ -66,10 +55,5 @@ int main() {
 	que.push(tmp);
 	bfs();
 
-
-	for (int i = 0; i <= msiz[2]; i++) {
-		if (check[i] == true) {
-			cout << i << " ";
-		}
-	}
+	for (int i = 0; i <= msiz[2]; i++) if (check[i] == true) cout << i << " ";
 }
