@@ -31,10 +31,8 @@ int main() {
 		}
 		else streak++;
 	}
-	if (streak > 0) {
-		energy += min(D * streak, M+D);
-		streak = 0;
-	}
+	if (streak > 0) energy += min(D * streak, M+D);
+    
 	int HYU = min(min(mp['H'], mp['U']), mp['Y']);
 	(energy == 0 ? cout << "Nalmeok" : cout << energy) << endl;
 	(HYU == 0 ? cout << "I love HanYang University" : cout << HYU);
