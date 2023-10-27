@@ -1,27 +1,11 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
 #include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
-
-#define X dx[i] + loc.x
-#define Y dy[i] + loc.y
-
-
-class Sort {
+class Problem {
 	public:
 		void setting(int& val) {
 			for (int i = 0; i < val; i++) {
@@ -53,7 +37,7 @@ int main() {
 	int N;
 	cin >> N;
 
-	Sort pl;
+	Problem pl;
 	pl.setting(N);
 	cout << pl.answer();
 }
