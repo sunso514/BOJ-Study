@@ -2,16 +2,7 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-
 #define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
@@ -19,12 +10,10 @@ using namespace std;
 
 int N, M;
 
-
 struct serial {
 	string name;
 	int value;
 };
-
 
 bool compare(serial &a, serial &b){
 	if (a.name.length() != b.name.length()) {
@@ -39,13 +28,8 @@ bool compare(serial &a, serial &b){
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	
-	
-
 	cin >> N;
 	vector<serial> str;
-
-
 
 	FOR(i, N) {
 		string abc; cin >> abc;
