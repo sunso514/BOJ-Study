@@ -9,7 +9,7 @@ using namespace std;
 class Solver{
 public:
 	Solver() {
-		string now = "";
+		this->now = "";
 	}
 
 	void setTargetString(string N) {
