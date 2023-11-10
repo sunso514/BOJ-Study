@@ -1,11 +1,10 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
 #include <string>
 
 #define endl "\n"
-using namespace std;
 
+using namespace std;
 
 class Solver{
 public:
@@ -87,5 +86,4 @@ int main() {
 		sol.setTargetString(sol.convert());
 		cout << sol.getTargetString() << endl;
 	}
-
 }
