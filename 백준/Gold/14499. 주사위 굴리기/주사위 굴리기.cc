@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 class Map {
 public:
     explicit Map(vector<vector<int>> mp) : map(mp) { }
@@ -81,7 +80,6 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
     int N, M, X, Y, K; 
     cin >> N >> M >> X >> Y >> K;
 
@@ -112,7 +110,7 @@ int main() {
         int tmp_x = nowLoc.first + dx[cmd - 1];
         int tmp_y = nowLoc.second + dy[cmd - 1];
 
-        // pass if dice go out of map
+        // pass if dice go out off the map
         if (tmp_x < 0 || tmp_y < 0 || tmp_x >= N || tmp_y >= M) continue;
 
         // set location of dice and roll dice
@@ -128,8 +126,6 @@ int main() {
             map.setMapData(dice.getLoc(), 0);
         }
 
-        cout << dice.getDiceNum(0) << "\n";
-        
+        cout << dice.getDiceNum(0) << "\n";   
     }
-
 }
