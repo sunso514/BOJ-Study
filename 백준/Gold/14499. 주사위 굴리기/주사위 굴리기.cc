@@ -1,19 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#define test "test "
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
@@ -125,9 +112,10 @@ int main() {
         int tmp_x = nowLoc.first + dx[cmd - 1];
         int tmp_y = nowLoc.second + dy[cmd - 1];
 
+        // pass if dice go out of map
         if (tmp_x < 0 || tmp_y < 0 || tmp_x >= N || tmp_y >= M) continue;
 
-
+        // set location of dice and roll dice
         dice.setLoc(tmp_x, tmp_y);
         dice.moveDice(cmd - 1);
 
