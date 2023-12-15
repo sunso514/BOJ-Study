@@ -27,20 +27,17 @@ public:
 
     void moveDice(const int dir) {
         vector<int> tmp_dice;
-        // 동, 오른쪽으로 이동
-        if (dir == 0) {
+        
+        if (dir == 0) { // 동, 오른쪽으로 이동
             tmp_dice = { dice[3], dice[1], dice[0], dice[5], dice[4], dice[2] };
         }
-        // 서, 왼쪽으로 이동
-        else if (dir == 1) {
+        else if (dir == 1) { // 서, 왼쪽으로 이동
             tmp_dice = { dice[2], dice[1], dice[5], dice[0], dice[4], dice[3] };
         }
-        // 북, 위 쪽으로 이동
-        else if (dir == 2) {
+        else if (dir == 2) { // 북, 위 쪽으로 이동
             tmp_dice = { dice[4], dice[0], dice[2], dice[3], dice[5], dice[1] };
         }
-        // 남, 아래 쪽으로 이동
-        else{
+        else{ // 남, 아래 쪽으로 이동
             tmp_dice = { dice[1], dice[5], dice[2], dice[3], dice[0], dice[4] };
         } 
 
