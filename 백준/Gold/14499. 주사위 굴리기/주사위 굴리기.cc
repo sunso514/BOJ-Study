@@ -129,22 +129,22 @@ int main() {
         int tmp_x = nowLoc.first + dx[cmd - 1];
         int tmp_y = nowLoc.second + dy[cmd - 1];
 
-        if (tmp_x >= 0 && tmp_y >= 0 && tmp_x < N && tmp_y < M) {
-            dice.setLoc(tmp_x, tmp_y);
+        if (tmp_x < 0 || tmp_y < 0 || tmp_x >= N || tmp_y >= M) continue;
 
-            dice.moveDice(cmd - 1);
 
-            // copy bottom number of dice
-            if (map.getMapData(dice.getLoc()) == 0) {
-                map.setMapData(dice.getLoc(), dice.getDiceNum(5));
-            }
-            else {
-                dice.setDiceNum(5, map.getMapData(dice.getLoc()));
-                map.setMapData(dice.getLoc(), 0);
-            }
+        dice.setLoc(tmp_x, tmp_y);
+        dice.moveDice(cmd - 1);
 
-            cout << dice.getDiceNum(0) << "\n";
+        // copy bottom number of dice
+        if (map.getMapData(dice.getLoc()) == 0) {
+            map.setMapData(dice.getLoc(), dice.getDiceNum(5));
         }
+        else {
+            dice.setDiceNum(5, map.getMapData(dice.getLoc()));
+            map.setMapData(dice.getLoc(), 0);
+        }
+
+        cout << dice.getDiceNum(0) << "\n";
         
     }
 
