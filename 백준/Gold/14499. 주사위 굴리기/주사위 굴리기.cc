@@ -20,7 +20,7 @@ using namespace std;
 
 class Map {
 public:
-    explicit Map(const int N, const int M, vector<vector<int>> mp) : maxX(N), maxY(M), map(mp) { }
+    explicit Map(vector<vector<int>> mp) : map(mp) { }
 
     int getMapData(pair<int, int> loc) {
         return this->map[loc.first][loc.second];
@@ -32,8 +32,6 @@ public:
 
 private:
     vector<vector<int>> map;
-    int maxX, maxY;
-
 };
 
 class Dice {
@@ -82,13 +80,11 @@ public:
 
 private:
     int nowX, nowY;
-    int direction;
     vector<int> dice;
 
     void init() {
         // bottom = index 5
         dice.resize(6, 0);
-        direction = 0;
     }
 };
 
@@ -113,7 +109,7 @@ int main() {
     int dx[4] = { 0, 0, -1, 1 };
     int dy[4] = { 1, -1, 0, 0 };
 
-    Map map(N, M, mp_info);
+    Map map(mp_info);
     Dice dice(X, Y);
 
     dice.setLoc(X, Y);
