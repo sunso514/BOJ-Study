@@ -1,17 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
-#define test "test "
 #define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
@@ -30,7 +20,6 @@ bool compare(Info& a, Info& b) {
     if (a.start_date != b.start_date) return a.start_date < b.start_date;
     if (a.fail_count != b.fail_count) return a.fail_count < b.fail_count;
     return a.name < b.name;
-
 }
 
 void changeBest(Info& userRes, Info now) {
@@ -39,14 +28,6 @@ void changeBest(Info& userRes, Info now) {
     else {
         if (userRes.freeze < now.freeze) return;
         else if (userRes.freeze > now.freeze) userRes = now;
-        else {
-            if (userRes.start_date < now.start_date) return;
-            else if (userRes.start_date > now.start_date) userRes = now;
-            else {
-                if (userRes.fail_count < now.fail_count) return;
-                else if (userRes.fail_count > now.fail_count) userRes = now;
-            }
-        }
     }
 }
 
