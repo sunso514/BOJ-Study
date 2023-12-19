@@ -59,9 +59,7 @@ int main() {
                     size++;
                     changeBest(userRes, { size, freeze, start_date, userRes.fail_count, userRes.name });
                 }
-                else if (board[i][j] == 'F') {
-                    if (size != 0) freeze++;
-                }
+                else if (board[i][j] == 'F' && size != 0) freeze++;
                 else if (board[i][j] == 'X') {
                     userRes.fail_count++;
                     size = 0;
@@ -73,7 +71,6 @@ int main() {
         res.push_back(userRes);
     }
     sort(res.begin(), res.end(), compare);
-    //FOR(i, res.size()) cout << res[i].name << " size:" << res[i].size << " freeze:" << res[i].freeze << " start_date" << res[i].start_date << endl;
     
     int rank = 1;
     FOR(i, res.size()) {
