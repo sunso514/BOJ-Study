@@ -2,18 +2,9 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
-#define test "test "
 #define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
@@ -37,5 +28,4 @@ int main() {
         ans -= min(tmp[0], tmp[1]);
         cout << ans << endl;
     }
-
 }
