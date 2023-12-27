@@ -1,19 +1,10 @@
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
-#define test "test "
 #define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
@@ -33,7 +24,6 @@ bool Check(string N) {
         if (last_word == N[i] && N[i] != 'e' && N[i] != 'o') {
             return false;
         }
-        
         bool check = false;
         for (int vo = 0; vo < 5; vo++) {
             if (N[i] == vowel[vo]) {
@@ -41,7 +31,6 @@ bool Check(string N) {
                 check_vowel = true;
             }
         }
-
         if (check == true) {
             if (consonant_streak > 0) consonant_streak = 0;
             vowel_streak++;
@@ -50,9 +39,7 @@ bool Check(string N) {
             if (vowel_streak > 0) vowel_streak = 0;
             consonant_streak++;
         }
-
         if (consonant_streak >= 3 || vowel_streak >= 3) return false;
-
         last_word = N[i];
     }
     return (check_vowel == true) ? true : false;
@@ -72,7 +59,5 @@ int main() {
             cout << "not ";
         }
         cout << "acceptable." << endl;
-        
-
     }
 }
