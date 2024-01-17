@@ -1,20 +1,8 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
-#include <bitset>
-
-#define test "test "
-#define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 #define X loc.x + dx[i]
@@ -36,6 +24,7 @@ queue<Location> que;
 
 int dx[4] = { 1, -1, 0, 0 };
 int dy[4] = { 0, 0, 1, -1 };
+
 void bfs(bool water) {
     Location loc;
 
@@ -79,7 +68,7 @@ int main() {
     graph.resize(R, vector<int>(C, 20000));
     visit.resize(R, vector<int>(C));
 
-    // BFS
+    // 맵 받아오기
     for (int i = 0; i < R; i++) {
         string gmp;
         cin >> gmp;
@@ -87,7 +76,7 @@ int main() {
     }
     
 
-    // 물 부터 확인
+    // 물 확산 bfs
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
             if (grid[i][j] == '*') {
@@ -99,7 +88,8 @@ int main() {
 
     visit.clear();
     visit.resize(R, vector<int>(C));
-
+    
+    // 집으로 가는 bfs
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
             if (grid[i][j] == 'S') {
