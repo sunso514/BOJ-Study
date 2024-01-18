@@ -6,7 +6,6 @@ using namespace std;
 
 int solution(vector<int> bandage, int health, vector<vector<int>> attacks) {
     int answer = health;
-    
     int streak = 0;
     int point = 0;
     for (int i = 0; i < attacks[attacks.size()-1][0]+1; i++){
@@ -25,6 +24,5 @@ int solution(vector<int> bandage, int health, vector<vector<int>> attacks) {
             }
         }
     }
-        
     return answer;
 }
