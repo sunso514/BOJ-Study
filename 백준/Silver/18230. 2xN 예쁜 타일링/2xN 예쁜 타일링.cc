@@ -1,26 +1,8 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define test "test "
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
-
-#define X loc.x + dx[i]
-
 
 
 int main() {
@@ -49,7 +31,6 @@ int main() {
         N--;
     }
     int tmpA, tmpB;
-    int tmp;
     for (int i = 0; i < N / 2; i++) {
         tmpA = 0, tmpB = 0;
         if (twoxtwo.size() > 0) tmpA = twoxtwo.back();
