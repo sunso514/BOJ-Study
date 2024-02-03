@@ -1,27 +1,8 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define test "test "
-#define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
-
 using namespace std;
-
-#define X loc.x + dx[i]
-
-
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -41,16 +22,15 @@ int main() {
 
     int ans = 0;
 
-    if (N <= M) {
-        if (minus.size() <= 0 || plus.size() <= 0) {
-            (minus.size() > 0) ? ans += abs(minus.front()) : ans += plus.back();
-            cout << ans;
-            return 0;
-        }
+    if ((N <= M) && (minus.size() <= 0 || plus.size() <= 0)) {
+        (minus.size() > 0) ? ans += abs(minus.front()) : ans += plus.back();
+        cout << ans;
+        return 0;
     }
 
     if (plus.size() == 0) plus.push_front(0);
-    if (minus.size() == 0)minus.push_front(0);
+    if (minus.size() == 0) minus.push_front(0);
+
     // 젤 큰놈 부터 처리 ( 왕복 X )
     if (plus.back() > abs(minus.front())) {
         ans += plus.back();
@@ -61,6 +41,7 @@ int main() {
         FOR(i, M) if (minus.size() > 0) minus.pop_front();
     }
 
+    // 나머지 덩이 처리
     while (!plus.empty()) {
         ans += plus.back() * 2;
         FOR(i, M) if (plus.size() > 0) plus.pop_back();
