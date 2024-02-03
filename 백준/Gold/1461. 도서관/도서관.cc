@@ -17,8 +17,8 @@ int main() {
         int a; cin >> a;
         (a < 0) ? minus.push_back(a) : plus.push_back(a);
     }
-    if (minus.size() > 0) sort(minus.begin(), minus.end());
-    if (plus.size() > 0) sort(plus.begin(), plus.end());
+    sort(minus.begin(), minus.end());
+    sort(plus.begin(), plus.end());
 
     int ans = 0;
 
