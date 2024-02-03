@@ -30,7 +30,7 @@ int main() {
     int N, M;
     cin >> N >> M;  
     deque<int> minus;
-    vector<int> plus;
+    deque<int> plus;
     
     FOR(i, N) {
         int a; cin >> a;
@@ -49,26 +49,16 @@ int main() {
         }
     }
 
+    if (plus.size() == 0) plus.push_front(0);
+    if (minus.size() == 0)minus.push_front(0);
     // 젤 큰놈 부터 처리 ( 왕복 X )
-    if (minus.size() > 0 && plus.size() > 0) {
-        if (plus.back() > abs(minus.front())) {
-            ans += plus.back();
-            FOR(i, M) if (plus.size() > 0) plus.pop_back();
-        }
-        else {
-            ans += abs(minus.front());
-            FOR(i, M) if (minus.size() > 0) minus.pop_front();
-        }
+    if (plus.back() > abs(minus.front())) {
+        ans += plus.back();
+        FOR(i, M) if (plus.size() > 0) plus.pop_back();
     }
     else {
-        if (plus.size() > 0) {
-            ans += plus.back();
-            FOR(i, M) if (plus.size() > 0) plus.pop_back();
-        }
-        else {
-            ans += abs(minus.front());
-            FOR(i, M) if (minus.size() > 0) minus.pop_front();
-        }
+        ans += abs(minus.front());
+        FOR(i, M) if (minus.size() > 0) minus.pop_front();
     }
 
     while (!plus.empty()) {
