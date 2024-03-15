@@ -1,22 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define test "test "
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
-
 using namespace std;
 
 #define X loc.x + dx[i] * j
@@ -32,21 +17,16 @@ struct Location
 
 int N, M, eX, eY, eD, sX, sY, sD;
 
-
 vector<vector<int>> graph;
 vector<vector<int>> visit;
 queue<Location> que;
 
-
-void bfs() {
+int bfs() {
 	Location loc;
-
-	int last_dir = 0;
 	int minv = 100000000;
 	while (!que.empty()) {
 		loc = que.front();
 		que.pop();
-
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -72,12 +52,11 @@ void bfs() {
 				else if (visit[X][Y] == 1000000 || visit[X][Y] > loc.depth + dep) {
 					visit[X][Y] = loc.depth + dep;
 					que.push({ X, Y, i, loc.depth + dep });
-
 				}
 			}
 		}
 	}
-	cout << minv;
+	return minv;
 }
 
 
@@ -102,16 +81,6 @@ int main() {
 	else if (eD == 2) eD = 1;
 
 	que.push({ sX, sY, sD, 0 });
-	bfs();
+	cout << bfs();
 	
-	/*
-	cout << endl;
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			if (visit[i][j] == 1000000) cout << 0 << " ";
-			else cout << visit[i][j] << " ";
-		}
-		cout << endl;
-	}
-	*/
 }
