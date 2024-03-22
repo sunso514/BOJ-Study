@@ -1,38 +1,17 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
 #include <bitset>
 
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
-
 using namespace std;
-
-#define TEST cout << "test\n";
-#define X2 (fb.x + (dx[fb.direction] == -1 ? N - 1 : dx[fb.direction]) * fb.speed) % N
-#define Y2 (fb.y + (dy[fb.direction] == -1 ? N - 1 : dy[fb.direction]) * fb.speed) % N
-
 
 int dx[8] = { -1, -1, 0, 1, 1, 1, 0, -1 };
 int dy[8] = { 0, 1, 1, 1, 0, -1 , -1, -1 };
 
 int N, M, K;
 
-
-
-
-
-// mass(질량)
 struct fireball {
 	int x, y, mass, speed, direction;
 };
@@ -76,14 +55,6 @@ void push_fireball() {
 			int X = (fb.x + (dx[fb.direction] == -1 ? N - 1 : dx[fb.direction]) * fb.speed) % N;
 			int Y = (fb.y + (dy[fb.direction] == -1 ? N - 1 : dy[fb.direction]) * fb.speed) % N;
 
-			/*
-			int X = fb.x + dx[fb.direction] * (fb.speed % N);
-			int Y = fb.y + dy[fb.direction] * (fb.speed % N);
-			if (X > 0) X %= N;
-			if (Y > 0) Y %= N;
-			if (X < 0) X = N - abs(X);
-			if (Y < 0) Y = N - abs(Y);
-			*/
 			tmp.push({ X, Y, fb.mass, fb.speed, fb.direction });
 		}
 	}
@@ -161,14 +132,7 @@ int main() {
 		//cout << "Turn : " << tm + 1 << endl;
 		//check_grid_info();
 		push_fireball();
-		
-		//cout << get_sum();
 		split_fireball();
-		
-		//cout << get_sum();
-		//check_grid_info();
-	
-		//cout << "Turn End \n";
 	}
 	// 남은 질량 출력
 	cout << get_sum();
