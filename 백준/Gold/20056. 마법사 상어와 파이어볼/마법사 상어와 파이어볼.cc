@@ -18,29 +18,6 @@ struct fireball {
 
 vector<vector<vector<fireball>>> grid;
 
-void check_que_info(queue<fireball> tmp) {
-	cout << "===== 큐의 현재 상황 확인 =====\n";
-	while (!tmp.empty()) {
-		fireball fb = tmp.front();
-		tmp.pop();
-		cout << "x y mass dir speed : " << fb.x << " " << fb.y << " " << fb.mass << " " << fb.direction << " " << fb.speed << endl;
-	}
-	cout << "==============================\n";
-}
-
-void check_grid_info() {
-	cout << "===== 그리드의 현재 상황 확인 =====\n";
-	fireball fb;
-	for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) {
-		if (grid[i][j].size() > 0) cout << "그리드 발견! size :" << grid[i][j].size() << endl;
-		for (int k = 0; k < grid[i][j].size(); k++) {
-			fb = grid[i][j][k];
-			cout << "x y mass dir speed : " << fb.x << " " << fb.y << " " << fb.mass << " " << fb.direction << " " << fb.speed << endl;
-		}
-	}
-	cout << "==============================\n";
-}
-
 // 파이어볼 보내기
 void push_fireball() {
 	
@@ -59,7 +36,6 @@ void push_fireball() {
 		}
 	}
 
-	//check_que_info(tmp);
 	while (!tmp.empty()) {
 		fireball fb = tmp.front();
 		tmp.pop();
@@ -129,8 +105,6 @@ int main() {
 	}
 
 	for (int tm = 0; tm < K; tm++) {
-		//cout << "Turn : " << tm + 1 << endl;
-		//check_grid_info();
 		push_fireball();
 		split_fireball();
 	}
