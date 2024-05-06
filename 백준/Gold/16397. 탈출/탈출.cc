@@ -2,20 +2,8 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define debug_msg cout << "Test";
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
+#include <queue>
 
 using namespace std;
 
@@ -33,6 +21,7 @@ int command_B(int N) {
 
 	string tmp = to_string(N);
 
+    // abort() 오류 해결 ( 예외처리 )
 	int firstDigit = tmp[0] - '0';
 	if (firstDigit == 0) {
 		tmp = "9" + tmp.substr(1);
