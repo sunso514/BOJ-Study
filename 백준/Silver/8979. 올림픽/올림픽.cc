@@ -24,9 +24,9 @@ struct Info {
 };
 
 bool compare(Info& a, Info& b) {
-	if (a.golden != b.golden) return a.golden < b.golden;
-	if (a.silver != b.silver) return a.silver < b.silver;
-	return a.bronze < b.bronze;
+	if (a.golden != b.golden) return a.golden > b.golden;
+	if (a.silver != b.silver) return a.silver > b.silver;
+	return a.bronze > b.bronze;
 }
 
 vector<Info> vec;
