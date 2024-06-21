@@ -1,15 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
 #include <bitset>
 
@@ -31,22 +23,6 @@ struct Location {
 	int x, y;
 };
 
-void printMap(vector<vector<char>> &a, vector<vector<bool>> &visit) {
-	for (int i = 0; i < N + 2; i++) {
-		for (int j = 0; j < M + 2; j++) {
-			cout << a[i][j];
-		}
-		cout << "\n";
-	}
-
-	for (int i = 0; i < N + 2; i++) {
-		for (int j = 0; j < M + 2; j++) {
-			(a[i][j] == '*') ? cout << "*" : cout << visit[i][j];
-		}
-		cout << "\n";
-	}
-}
-
 int bfs(vector<vector<char>> &graph, vector<bool> &key) {
 	int ans = 0;
 	vector<vector<bool>> visit(N + 2, vector<bool>(M + 2));
@@ -54,20 +30,17 @@ int bfs(vector<vector<char>> &graph, vector<bool> &key) {
 	queue<Location> que;
 	queue<Location> tmp;
 	que.push({ 0, 0 });
-	//printMap(graph, visit);
 
 	// 변화가 있는지 확인 
 	while (true) {
 
 		bool check = true;
-		//cout << "TEST \n";
 		while (!que.empty()) {
 			Location loc;
 			loc = que.front();
 			que.pop();
-			//printMap(graph, visit);
+            
 			for (int i = 0; i < 4; i++) {
-				// 다가가지 못하는 경우 탐색
 				if (X < 0 || Y < 0 || X >= N + 2 || Y >= M + 2) continue;
 				if (graph[X][Y] == '*' || visit[X][Y] == true) continue;
 				if ((graph[X][Y] >= 'A' && graph[X][Y] <= 'Z')) {
@@ -97,8 +70,6 @@ int bfs(vector<vector<char>> &graph, vector<bool> &key) {
 			}
 
 		}
-		//printMap(graph, visit);
-		//cout << "TEST";
 		if (check == true) break;
 		else {
 			while (!tmp.empty()) {
@@ -140,8 +111,6 @@ int main() {
 				key[K[i] - 'a'] = true;
 			}
 		}
-		//cout << "TESTST\n";
-		
 		cout << bfs(graph, key) << endl;
 
 
