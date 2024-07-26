@@ -1,21 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define debug_msg cout << "Test";
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
@@ -46,7 +30,9 @@ int main() {
 				tmp[i] = pig[i];
 			}
 			for (int i = 0; i < 6; i++) {
-				pig[i] += tmp[(i + 1) % 6] + tmp[(i + 5) % 6] + tmp[(i + 3) % 6];
+				for (int j = 1; j <= 5; j += 2) {
+					pig[i] += tmp[(i + j) % 6];
+				}
 			}
 		}
 		cout << day << "\n";
