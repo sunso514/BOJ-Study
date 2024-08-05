@@ -1,21 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define debug_msg cout << "Test";
 #define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
 
@@ -30,9 +16,7 @@ void dfs(int st) {
 
 	for (auto n : graph[st]) {
 		if (visit[n] != 0) continue;
-		else {
-			dfs(n);
-		}
+		dfs(n);
 	}
 }
 
@@ -49,14 +33,16 @@ int main() {
 	for (int i = 0; i < M; i++) {
 		int u, v;
 		cin >> u >> v;
-		
 		graph[u].push_back(v);
 		graph[v].push_back(u);
 	}
+    
 	for (int i = 1; i <= N; i++) {
 		sort(graph[i].begin(), graph[i].end());
 	}
+    
 	dfs(R);
+    
 	for (int i = 1; i <= N; i++) {
 		cout << visit[i] << endl;
 	}
