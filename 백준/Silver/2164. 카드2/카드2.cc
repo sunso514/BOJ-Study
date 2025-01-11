@@ -6,7 +6,7 @@
 using namespace std;
 #define FOR(i, N) for(int (i) = 0; (i) < (N); (i)++)
 
-int N, K, M;
+int N;
 
 int main() {
 	ios::sync_with_stdio(0);
@@ -25,5 +25,5 @@ int main() {
 		deq.push_back(deq.front());
 		deq.pop_front();
 	}
-	cout << deq[0];
+	cout << deq.front();
 }
