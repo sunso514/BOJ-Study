@@ -1,9 +1,4 @@
 #include <iostream>
-#include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
-#include <vector>
 #include <stack>
 using namespace std;
 
@@ -33,8 +28,6 @@ int main() {
         }
         else if (cmd == 3) cout << stack.size() << endl;
         else if (cmd == 4) cout << stack.empty() << endl;
-        else{
-            cout << ((stack.empty() == 0) ? stack.top() : -1) << endl;
-        }
+        else cout << ((stack.empty() == 0) ? stack.top() : -1) << endl;
     }
 }
