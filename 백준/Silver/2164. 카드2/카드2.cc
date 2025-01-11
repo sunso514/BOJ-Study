@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <deque>
+#include <queue>
 
 
 using namespace std;
@@ -12,18 +12,18 @@ int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	deque<int> deq;
+	queue<int> que;
 
 	cin >> N;
-	FOR(i, N) deq.push_back(i + 1);
+	FOR(i, N) que.push(i + 1);
 	
 	while (true) {
-		if (deq.size() == 1) break;
-		deq.pop_front();
+		if (que.size() == 1) break;
+		que.pop();
 
-		if (deq.size() == 1) break;
-		deq.push_back(deq.front());
-		deq.pop_front();
+		if (que.size() == 1) break;
+		que.push(que.front());
+		que.pop();
 	}
-	cout << deq.front();
+	cout << que.front();
 }
