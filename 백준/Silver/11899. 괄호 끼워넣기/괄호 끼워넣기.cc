@@ -38,13 +38,8 @@ int main(void) {
             else stk.push(code);
             continue;
         }
-
-        if (stk.top() == (code + 1) % 2) {
-            stk.pop();
-        }
-        else {
-            stk.push(code);
-        }
+        if (stk.top() == 0 && code == 1) stk.pop();
+        else stk.push(code);
     }
     cout << fail + stk.size();
 
