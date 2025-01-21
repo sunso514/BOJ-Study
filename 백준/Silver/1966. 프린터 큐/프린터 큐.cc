@@ -1,15 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
-#include <set>
-#include <tuple>
 
 
 #define endl "\n"
@@ -17,12 +9,7 @@
 
 using namespace std;
 
-
-struct Balloon {
-	int index, val;
-};
-
-int N, M;
+int N;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -36,7 +23,6 @@ int main() {
 		deque<pair<int, int>> que;
 		vector<int> amo(10, 0);
 		
-
 		FOR(i, A) {
 			int cost; cin >> cost;
 			amo[cost]++;
@@ -69,6 +55,4 @@ int main() {
 			}
 		}
 	}
-
-
 }
