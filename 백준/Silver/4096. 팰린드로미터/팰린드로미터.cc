@@ -1,43 +1,28 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <queue>
-#include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define debug_msg cout << "Test";
 #define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
-
 using namespace std;
 
 
 bool checkF(int N, int size) {
     string num = "";
     string tmp = to_string(N);
+
+    // 000121을 int로 변환하면 000이 사라지므로 이를 채워줌
     for (int i = 0; i < size - tmp.length(); i++) {
         num += "0";
     }
     num += tmp;
     
+    // 앞, 뒤를 하나씩 조회하며 가운데로 나아감
     int s = num.length();
     for (int i = 0; i < s / 2; i++) {
-        //cout << num[i] << " " << num[s-1-i] << endl;
         if (num[i] != num[s - 1 - i]) return false;
     }
     return true;
 }
-
-
 
 
 int main(void) {
