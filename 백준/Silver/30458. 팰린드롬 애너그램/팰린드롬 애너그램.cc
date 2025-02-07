@@ -20,15 +20,11 @@ int main() {
 	}
 
 	
-	bool chance = true;
 	bool pass = true;
 	for (int i = 0; i < 26; i++) {
 		if (vec[i] % 2 != 0) {
-			if (chance == true) chance = false;
-			else {
-				pass = false;
-				break;
-			}
+            pass = false;
+            break;
 		}
 	}
 	(pass == true) ? cout << "Yes" : cout << "No";
