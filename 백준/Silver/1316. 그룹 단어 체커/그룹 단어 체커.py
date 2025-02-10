@@ -1,8 +1,3 @@
-#goal_e, goal_s, goal_m = map(int, input().split())
-
-
-
-
 N = int(input())
 count = N
 
