@@ -1,34 +1,8 @@
-
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
-#include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-
-#include <bitset>
-
-#define debug_msg cout << "Test";
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
-
-
-struct sign {
-    int D, R, G; // D : location, R, G : red/green light duration 
-};
-
-bool compare(sign& a, sign& b) {
-    if (a.D <= b.D) return true;
-    return false;
-}
 
 
 int main(void) {
