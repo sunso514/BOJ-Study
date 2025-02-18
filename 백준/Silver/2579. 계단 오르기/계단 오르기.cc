@@ -20,7 +20,6 @@ int main() {
 	dp[0] = lst[0];
 	dp[1] = lst[0] + lst[1];
 	dp[2] = max(lst[0] + lst[2], lst[1] + lst[2]);
-
 	for (int i = 3; i < N; i++) {
 		dp[i] = max(lst[i] + lst[i - 1] + dp[i - 3], lst[i] + dp[i - 2]);
 	}
