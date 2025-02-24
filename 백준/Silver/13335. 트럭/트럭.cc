@@ -1,21 +1,9 @@
-
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
 #include <deque>
-#include <set>
-#include <tuple>
 
-#include <bitset>
-
-#define debug_msg cout << "Test";
-#define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
 using namespace std;
@@ -42,14 +30,6 @@ int main(void) {
     int total_w = 0;
     while (true) {
         
-        /*
-        cout << "DEBUG BRIDGE : ";
-        for (auto i : bridge) {
-            cout << i.weight << " ";
-        }
-        cout << endl;
-        */
-
         if (bridge.empty() && trucks.empty()) break;
         time++;
 
