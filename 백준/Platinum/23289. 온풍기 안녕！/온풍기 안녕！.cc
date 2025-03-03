@@ -56,22 +56,12 @@ void show_temp() {
 bool thermal_conduction(int row, int col, int dir, int inc){
     int tmp_x = row + dx_wind[(dir * 2 + inc) % 8];
     int tmp_y = col + dy_wind[(dir * 2 + inc) % 8];
-    //cout << "TEST thermal_conduction check " << tmp_x << " " << tmp_y << endl;
     if (tmp_x < 0 || tmp_x >= R || tmp_y < 0 || tmp_y >= C) return false;
 
     // 바로 앞에 벽이 있다면 퍼질 수 없음.
-    if (wall[tmp_x][tmp_y][(dir + 2) % 4] == true) {
-        //cout << "CUT XY : " << tmp_x << " " << tmp_y << endl;
-        return false;
-    }
-    if (inc == 0 && wall[row][col][(dir + 3) % 4] == true) {
-        //cout << "CUT LEFT : " << tmp_x << " " << tmp_y << endl;
-        return false;
-    }
-    if (inc == 2 && wall[row][col][(dir + 1) % 4] == true) {
-        //cout << "CUT RIGHT : " << tmp_x << " " << tmp_y << endl;
-        return false;
-    }
+    if (wall[tmp_x][tmp_y][(dir + 2) % 4] == true) return false;
+    if (inc == 0 && wall[row][col][(dir + 3) % 4] == true) return false;
+    if (inc == 2 && wall[row][col][(dir + 1) % 4] == true) return false;
     return true;
 }
 
@@ -116,14 +106,6 @@ void diffusion() {
                     tmp_temp[new_x][new_y] += diff / 4;
                     tmp_temp[i][j] -= diff / 4;
                 }
-                continue;
-                cout << endl << endl;
-                FOR(i, R) {
-                    FOR(j, C) {
-                        cout << tmp_temp[i][j] << " ";
-                    }
-                    cout << endl;
-                }
             }
         }
     }
@@ -134,17 +116,14 @@ void diffusion() {
 
 // 모든 온풍기가 확산되고 증가하는 온도를 미리 계산
 void cal_heaters() {
-    //cout << "TEST-A" << endl;
     // 모든 온풍기의 결과를 total_inc에 저장함
     for (auto ht : heater) {
         vector<vector<int>> tmp_temp(R, vector<int>(C, 0));
         queue<SLoc> que;
 
-        //cout << "QUE FT : " << ht.row << " " << ht.col << " " << ht.dir << endl;
         // 온풍기가 바라보는 방향 앞에 열기 5 설치
         int front_x = ht.row + dx_wind[(ht.dir * 2 + 1) % 8];
         int front_y = ht.col + dy_wind[(ht.dir * 2 + 1) % 8];
-        //cout << "FX FY : " << front_x << " " << front_y << endl;
 
         que.push({ front_x, front_y, ht.dir, 4 });
 
@@ -157,14 +136,12 @@ void cal_heaters() {
         while (!que.empty()) {
             SLoc tmp = que.front();
             que.pop();
-            //cout << "NOW X Y :" << tmp.row << " " << tmp.col << endl;
             if (tmp.heat <= 0) continue;
 
             for (int i = 0; i < 3; i++) {
 
                 // 열 전도가 가능하다면
                 if (thermal_conduction(tmp.row, tmp.col, tmp.dir, i) == true) {
-                    //cout << "check fin " << (tmp.dir * 2 + i) % 8 << "\n";
                     int new_x = tmp.row + dx_wind[(tmp.dir * 2 + i) % 8];
                     int new_y = tmp.col + dy_wind[(tmp.dir * 2 + i) % 8];
                     if (new_x < 0 || new_y < 0 || new_x >= R || new_y >= C) continue;
@@ -228,7 +205,7 @@ int main(void) {
     }
 
 
-    // 온풍기 전처리
+    // 온풍기 온도 상승치 전처리
     cal_heaters();
     int chocolate = 0;
     while (true) {
@@ -236,20 +213,12 @@ int main(void) {
         // 온풍기 가동
         FOR(i, R) FOR(j, C) temp[i][j] += total_heatInc[i][j];
         
-        //cout << "\n온풍기 가동 \n";
-        //show_temp();
-
         // 온도가 조절됨
         diffusion();
-
-        //cout << "\n온도 조절\n";
-        //show_temp();
 
         // 가장자리 온도가 1씩 감소함
         heat_decrease();
 
-        //cout << "\n가장자리 온도 감소\n";
-        //show_temp();
         // 초콜릿을 먹음
         chocolate++;
         if (chocolate > 100) break;
@@ -257,10 +226,8 @@ int main(void) {
         // 온도를 조사
         if (check_goals() == true) break;
     }
-    
-    //show_temp();
-    cout << chocolate;
 
+    cout << chocolate;
     return 0;
 }
     
