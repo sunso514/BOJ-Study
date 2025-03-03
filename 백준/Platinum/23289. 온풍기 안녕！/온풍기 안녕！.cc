@@ -1,20 +1,9 @@
 
 #include <iostream>
 #include <algorithm>
-#include <cstring>
-#include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
 
-#include <bitset>
-
-#define debug_msg cout << "Test";
 #define endl "\n"
 #define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
 
@@ -84,9 +73,8 @@ void diffusion() {
     vector<vector<int>> tmp_temp(R, vector<int>(C, 0));
     FOR(i, R) FOR(j, C) {
         int heat = temp[i][j];
-        
-        //tmp_temp[i][j] += heat;
-        // dir을 2개만 쓴 이유는 온도 확산은 1번만 일어나지만 위 아래를 모두 체크할 경우 변화가 2회 일어난다. ( 가설 )
+
+        // dir을 2개만 쓴 이유는 온도 확산은 1번만 일어나지만 위 아래를 모두 체크할 경우 변화가 2회 일어난다.
         for (int dir = 0; dir < 2; dir++) {
             if (thermal_conduction(i, j, dir, 1) == true) {
                 int new_x = i + dx_wind[(dir * 2 + 1) % 8];
@@ -130,8 +118,6 @@ void cal_heaters() {
         // bfs
         tmp_temp[front_x][front_y] = 5;
         total_heatInc[front_x][front_y] += 5;
-
-        //cout << "TEST BFS START\n";
 
         while (!que.empty()) {
             SLoc tmp = que.front();
@@ -183,7 +169,7 @@ int main(void) {
             target.push_back({ i, j, -1 });
             continue;
         }
-        // 오, 왼, 위, 아래 온풍기 입력 012 234 456 670
+        // 오, 왼, 위, 아래 온풍기 입력 
         int tmp_lst[] = { 0, 2, 3, 1 };
         heater.push_back({ i, j, tmp_lst[a-1] });
     }
