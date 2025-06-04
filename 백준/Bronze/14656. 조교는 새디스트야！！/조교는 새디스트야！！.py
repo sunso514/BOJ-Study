@@ -1,0 +1,5 @@
+N = int(input())
+lst = list(map(int, input().split()))
+srt = sorted(lst)
+ans = len([i for i in range(N) if lst[i] != srt[i]])
+print(ans)
