@@ -1,25 +1,8 @@
-
 #include <iostream>
 #include <algorithm>
-#include <cstring>
 #include <string>
 #include <queue>
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <map>
-#include <deque>
-#include <set>
-#include <tuple>
-#include <iomanip>
-
-#include <bitset>
-
-
-#define debug_msg cout << "Test";
-#define endl "\n"
-#define FOR(a, b) for(int (a) = 0; (a) < (b); (a)++)
-#define INF 1000000009
 
 using namespace std;
 
@@ -32,8 +15,6 @@ vector<int> speed(10);
 vector<queue<loc>> que; // depth 초기화하는 구문 만들어야함. 
 
 int N, M, P;
-
-int exist_plot = 0;
 
 int dx[4] = { 1, -1, 0, 0 };
 int dy[4] = { 0, 0, 1, -1 };
@@ -89,8 +70,6 @@ int main(void) {
         cin >> speed[i];
     }
 
-    // 2차원 판 입력 받기.
-    exist_plot = N * M;
     for (int i = 0; i < N; i++) {
         string get; cin >> get;
 
@@ -112,14 +91,12 @@ int main(void) {
         updated = false;
 
         for (int i = 1; i <= P; i++) {
-            //cout << i << " Player Turn \n";
             int moves = speed[i];
             while (moves-- && !que[i].empty()) {
                 int que_size = que[i].size();
                 bool res = bfs(i, que_size);
                 if (updated == false) updated = res;
             }
-            //debug_grpah();
         }
     }
     vector<int> ans(10, 0);
