@@ -12,7 +12,7 @@ struct loc {
 
 vector<vector<int>> graph;
 vector<int> speed(10); 
-vector<queue<loc>> que; // depth 초기화하는 구문 만들어야함. 
+vector<queue<loc>> que;
 
 int N, M, P;
 
@@ -99,6 +99,7 @@ int main(void) {
             }
         }
     }
+    
     vector<int> ans(10, 0);
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
